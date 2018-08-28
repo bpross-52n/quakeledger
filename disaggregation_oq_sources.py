@@ -122,13 +122,13 @@ def match_disaggregation(ruptures,lat,lon,poe):
     from the rupture for each bin
     '''
     #read deaggregation sites
-    sites = pandas.read_csv('sites.csv')
+    sites = pandas.read_csv('/home/bpr/git/quakeledger/sites.csv')
     #find closest match to target
     slon= [sites.iloc[i].lon for i,v in enumerate(sites.lon) if abs(v-lon)==min(abs(sites.lon - lon))][0]
     slat= [sites.iloc[i].lat for i,v in enumerate(sites.lat) if abs(v-lat)==min(abs(sites.lat - lat))][0]
     sid = int(sites[(sites.lon==slon) & (sites.lat==slat)].sid)
     #get deaggregation
-    dr = pandas.read_csv('mean_disagg.csv')
+    dr = pandas.read_csv('/home/bpr/git/quakeledger/mean_disagg.csv')
     #get that for specified hazard level and site
     dr = dr[(dr.sid==sid) & (dr.poe50y==poe)]
     #determine precision
