@@ -133,8 +133,8 @@ zmin=float(sys.argv[7])
 zmax=float(sys.argv[8])
 p=float(sys.argv[9])
 etype=sys.argv[10]
-tlon=sys.argv[11]
-tlat=sys.argv[12]
+tlon=float(sys.argv[11])
+tlat=float(sys.argv[12])
 
 selected = query_events(db,lonmin=lonmin,lonmax=lonmax,latmin=latmin,latmax=latmax,mmin=mmin,mmax=mmax,zmin=zmin,zmax=zmax,p=p,tlat=tlat,tlon=tlon,etype=etype)
 ##selected = query_events(db,p=p,etype=etype)
